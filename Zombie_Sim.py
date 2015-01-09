@@ -175,7 +175,7 @@ def NekoMovement(Grid):
     return Grid
 
 def StartingPopulace(Grid):
-    print ("Starting Populace:")
+    print ("\nStarting Populace:")
     n = 1
     w = 1
     for i in range(10):
@@ -212,9 +212,9 @@ def Endgame(Grid):
     repeat = 0
     for i in range(2):
         if repeat == 0:
-            print ("Human population:")
+            print ("\nHuman population:")
         elif repeat == 1:
-            print ("Zombie population:")
+            print ("\nZombie population:")
         n = 1
         w = 1
         for i in range(10):
@@ -235,14 +235,17 @@ def Discover(turn,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,
     else:
         DarthVader = 1
         return DarthVader
+
 #main
+print ("\nWelcome to A-Tamang's Zombie Simulator!\n")
+
 badanswer = 1
 while badanswer == 1:
-    gamechoice = input("Do you want to play PART A[enter 1] or PART B[enter 2]? ")
+    gamechoice = input("Would you like to run [PART A] or [PART B]? (Enter '1' or '2') --> ")
     try:
         gamechoice = int(gamechoice)
     except ValueError:
-        print ("Please enter a valid number.")
+        print ("Please enter a valid entry.\n")
     if gamechoice == 1:
         badanswer = 0
         Live = "y"
@@ -251,10 +254,13 @@ while badanswer == 1:
         StartingPopulace(Grid)
         while "n" not in Live:
             while True:
-                Survival = input("For how many turns do you want to run the simulation? ")
+                Survival = input("\nFor how many turns do you want to run the simulation? ")
                 try:
                     Survival = int(Survival)
-                    break
+                    if Survival > 0:
+                        break
+                    else:
+                        print ("Please enter a valid number greater than zero.")
                 except ValueError:
                     print ("Please enter a valid number greater than zero.")
             for i in range(Survival+1):
@@ -268,7 +274,7 @@ while badanswer == 1:
                         n = n+1
                     w = w+1
             Endgame(Grid)
-            Live = input ("Do you want to continue to the simulation? 'n' for no, anything else for yes. ")
+            Live = input ("\nWould you like to continue the simulation?\nEnter 'n' for no, anything else for yes --> ")
     elif gamechoice == 2:
         DarthVader = 1
         turn = 0
@@ -290,4 +296,4 @@ while badanswer == 1:
             DarthVader = Discover(turn,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,H1,H2,H3,H4,H5,H6,H7,H8,H9,H10,I1,I2,I3,I4,I5,I6,I7,I8,I9,I10,J1,J2,J3,J4,J5,J6,J7,J8,J9,J10)
         Endgame(Grid)
         
-input("Thanks for playing!")
+input("\nThanks for playing!")
