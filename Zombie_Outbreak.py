@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------------------
 #
-# Title: Zombie Simulator
+# Title: Zombie Outbreak
 # Creator: Ashish Tamang
 # Student of University of Waterloo
 # Created: Winter 2012
 #
 #   Description:
 #
-#       'Zombie-Simulator' features a 10 by 10 grid which represents a bustling city
+#       'Zombie Outbreak' features a 10 by 10 grid which represents a bustling city
 #       inhabited by humans. The program then runs an algorithm that predicts
 #       what would happen to the city if a zombie outbreak were to occur. 
 #
