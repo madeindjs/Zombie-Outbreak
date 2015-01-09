@@ -72,7 +72,7 @@ def BirthOfTheZombay(Grid):
 def DefineTheZombay(Grid):
     n = random.randrange(10)+1
     w = random.randrange(10)+1
-    Grid[n,w][1] = input("How many zombies do you want to spawn at a random location?")
+    Grid[n,w][1] = input("\nHow many zombies would you like to spawn? --> ")
     while True:
         try:
             Grid[n,w][1] = int(Grid[n,w][1])
@@ -225,11 +225,11 @@ def Endgame(Grid):
         
 def Discover(turn,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,H1,H2,H3,H4,H5,H6,H7,H8,H9,H10,I1,I2,I3,I4,I5,I6,I7,I8,I9,I10,J1,J2,J3,J4,J5,J6,J7,J8,J9,J10):
     if A1[0]+A2[0]+A3[0]+A4[0]+A5[0]+A6[0]+A7[0]+A8[0]+A9[0]+A10[0]+B1[0]+B2[0]+B3[0]+B4[0]+B5[0]+B6[0]+B7[0]+B8[0]+B9[0]+B10[0]+C1[0]+C2[0]+C3[0]+C4[0]+C5[0]+C6[0]+C7[0]+C8[0]+C9[0]+C10[0]+D1[0]+D2[0]+D3[0]+D4[0]+D5[0]+D6[0]+D7[0]+D8[0]+D9[0]+D10[0]+E1[0]+E2[0]+E3[0]+E4[0]+E5[0]+E6[0]+E7[0]+E8[0]+E9[0]+E10[0]+F1[0]+F2[0]+F3[0]+F4[0]+F5[0]+F6[0]+F7[0]+F8[0]+F9[0]+F10[0]+G1[0]+G2[0]+G3[0]+G4[0]+G5[0]+G6[0]+G7[0]+G8[0]+G9[0]+G10[0]+H1[0]+H2[0]+H3[0]+H4[0]+H5[0]+H6[0]+H7[0]+H8[0]+H9[0]+H10[0]+I1[0]+I2[0]+I3[0]+I4[0]+I5[0]+I6[0]+I7[0]+I8[0]+I9[0]+I10[0]+J1[0]+J2[0]+J3[0]+J4[0]+J5[0]+J6[0]+J7[0]+J8[0]+J9[0]+J10[0] == 0:
-        print ("The humans were exterminated in", turn, "turns.")
+        print ("\nThe humans were exterminated in", turn, "turns.")
         DarthVader = 0
         return DarthVader
     elif A1[1]+A2[1]+A3[1]+A4[1]+A5[1]+A6[1]+A7[1]+A8[1]+A9[1]+A10[1]+B1[1]+B2[1]+B3[1]+B4[1]+B5[1]+B6[1]+B7[1]+B8[1]+B9[1]+B10[1]+C1[1]+C2[1]+C3[1]+C4[1]+C5[1]+C6[1]+C7[1]+C8[1]+C9[1]+C10[1]+D1[1]+D2[1]+D3[1]+D4[1]+D5[1]+D6[1]+D7[1]+D8[1]+D9[1]+D10[1]+E1[1]+E2[1]+E3[1]+E4[1]+E5[1]+E6[1]+E7[1]+E8[1]+E9[1]+E10[1]+F1[1]+F2[1]+F3[1]+F4[1]+F5[1]+F6[1]+F7[1]+F8[1]+F9[1]+F10[1]+G1[1]+G2[1]+G3[1]+G4[1]+G5[1]+G6[1]+G7[1]+G8[1]+G9[1]+G10[1]+H1[1]+H2[1]+H3[1]+H4[1]+H5[1]+H6[1]+H7[1]+H8[1]+H9[1]+H10[1]+I1[1]+I2[1]+I3[1]+I4[1]+I5[1]+I6[1]+I7[1]+I8[1]+I9[1]+I10[1]+J1[1]+J2[1]+J3[1]+J4[1]+J5[1]+J6[1]+J7[1]+J8[1]+J9[1]+J10[1] == 0:
-        print ("The zombies were exterminated in", turn, "turns.")
+        print ("\nThe zombies were exterminated in", turn, "turns.")
         DarthVader = 0
         return DarthVader
     else:
@@ -254,7 +254,7 @@ while badanswer == 1:
         StartingPopulace(Grid)
         while "n" not in Live:
             while True:
-                Survival = input("\nFor how many turns do you want to run the simulation? ")
+                Survival = input("\nFor how many turns do you want to run the simulation? --> ")
                 try:
                     Survival = int(Survival)
                     if Survival > 0:
@@ -274,7 +274,7 @@ while badanswer == 1:
                         n = n+1
                     w = w+1
             Endgame(Grid)
-            Live = input ("\nWould you like to continue the simulation?\nEnter 'n' for no, anything else for yes --> ")
+            Live = input ("\nWould you like to continue the simulation for a few more turns?\nEnter 'n' for no, anything else for yes --> ")
     elif gamechoice == 2:
         DarthVader = 1
         turn = 0
