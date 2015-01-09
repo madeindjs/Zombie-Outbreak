@@ -1,7 +1,7 @@
-# Zombie-Simulator
+# Zombie-Outbreak
 Synopsis:
 
-         A 'Zombie Outbreak' simulator created in Python 
+         A Zombie Apocalypse simulator created in Python 
 
 Description:
           
