@@ -3,6 +3,10 @@ Synopsis:
 
          A Zombie Apocalypse simulator created in Python 
 
+Created:  
+
+             Winter 2012
+
 Description:
           
          'Zombie-Simulator' features a 10 by 10 grid which represents a bustling city
