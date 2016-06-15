@@ -55,7 +55,7 @@ class Grid():
 			area_id = random.choice(areas_ids_possibles)
 			return self.areas[area_id]
 		except IndexError:
-			self.get_random_neighbour_area()
+			self._get_random_area()
 
 
 

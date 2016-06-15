@@ -29,5 +29,5 @@ if __name__ == '__main__':
 
 	while Human.total > 0 :
 		turn()
-		time.sleep(.3)
+		time.sleep(.01)
 

@@ -24,13 +24,17 @@ class Guy():
 
 
 	def move(self, grid):
-		# add it to the new area_id
-		new_area = grid.get_random_neighbour_area(self.area_id)
-		new_area.guys.append(self)
-		# remove it from the old area
-		old_area = grid.find_area(self.area_id)
-		old_area.guys.remove(self)
-		self.area_id = new_area.id
-		# print('{} moved from {} to {}'.format(self, old_area, new_area))
+		try:
+			# add it to the new area_id
+			new_area = grid.get_random_neighbour_area(self.area_id)
+			new_area.guys.append(self)
+			# remove it from the old area
+			old_area = grid.find_area(self.area_id)
+			old_area.guys.remove(self)
+			self.area_id = new_area.id
+			# print('{} moved from {} to {}'.format(self, old_area, new_area))
+		except AttributeError:
+			del(self)
+
 
 
