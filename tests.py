@@ -43,8 +43,7 @@ class AreaTest(unittest.TestCase):
 		"""add a 5 zombie and count the total zombie in this area"""
 		new_area = Area(1)
 		new_area.add_zombies(5)
-		self.assertEqual(sum(1 for x in new_area.zombies) , 5)
-		# self.assertEqual(len(list(new_area.zombies)), 5)
+		self.assertEqual(len(list(new_area.zombies)) , 5)
 
 
 

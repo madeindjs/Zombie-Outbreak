@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import time
+import os
 
 from classes.grid import Grid
 from classes.human import Human
+from classes.zombie import Zombie
 
 
 if __name__ == '__main__':
@@ -11,6 +13,8 @@ if __name__ == '__main__':
 	grid.add_humans(1)
 
 	def turn():
+		os.system('cls' if os.name == 'nt' else 'clear')
+		
 		for area in grid.areas:
 			for human in area.humans:
 				human.move(grid)
@@ -18,6 +22,9 @@ if __name__ == '__main__':
 				zombie.move(grid)
 		
 		print(grid.view_map())
+		print('status: {} zombies and {} humans left'.format(Zombie.total, Human.total))
+
+
 
 	while Human.total > 0 :
 		turn()

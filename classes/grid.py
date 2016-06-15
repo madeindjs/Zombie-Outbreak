@@ -39,13 +39,14 @@ class Grid():
 
 
 
-	def get_random_neighbour_area(self, area):
+	def get_random_neighbour_area(self, area_id):
 		"""return a new location """
 		# return all moves possibles in array
-		locations_possibles = [move+area for move in [-10,10,-1,1] if move+area >= 0 and move+area <= 100]
+		areas_ids_possibles = [ move+area_id for move in [-10,10,-1,1]]
+		areas_ids_possibles = [ area_id for area_id in areas_ids_possibles if area_id >= 0 and area_id <= 100]
 		# get a random movement
-		new_area_id = random.choice(locations_possibles)
-		return self.areas[new_area_id]
+		area_id = random.choice(areas_ids_possibles)
+		return self.areas[area_id]
 
 
 

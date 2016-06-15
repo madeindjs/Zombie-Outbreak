@@ -11,7 +11,6 @@ class Guy():
 
 
 	def __init__(self, area_id):
-		print('--------------{}'.format(self.__class__))
 		self.area_id = area_id
 		self.__class__.total += 1 # increment number of instance of this object
 
@@ -32,6 +31,6 @@ class Guy():
 		old_area = grid.find_area(self.area_id)
 		old_area.guys.remove(self)
 		self.area_id = new_area.id
-		print('{} moved from {} to {}'.format(self, old_area, new_area))
+		# print('{} moved from {} to {}'.format(self, old_area, new_area))
 
 
