@@ -10,3 +10,20 @@ class Grid():
 		for x in range(0,10):
 			for y in range(0,10):
 				self.areas.append( Area(x,y) )
+
+
+
+	def view_map(self):
+		"""create a view map"""
+
+		map_view = '_'*80
+		# fetch all areas from `self.areas`
+		for x in range(0,10):
+			for y in range(0,10):
+				map_view += '{}\t'.format(self.areas[x+y].status)
+			map_view += "\r\n"
+		map_view += '_'*80
+
+		return map_view
+
+

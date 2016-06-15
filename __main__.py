@@ -5,4 +5,5 @@ from classes.grid import Grid
 
 
 if __name__ == '__main__':
-	Grid()
+	grid = Grid()
+	print(grid.view_map())
