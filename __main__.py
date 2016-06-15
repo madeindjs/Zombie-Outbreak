@@ -10,11 +10,12 @@ from classes.zombie import Zombie
 
 if __name__ == '__main__':
 	grid = Grid()
-	grid.add_humans(1)
+	grid.add_humans(5)
+	grid.add_zombies(5)
 
 	def turn():
 		os.system('cls' if os.name == 'nt' else 'clear')
-		
+
 		for area in grid.areas:
 			for human in area.humans:
 				human.move(grid)
@@ -28,5 +29,5 @@ if __name__ == '__main__':
 
 	while Human.total > 0 :
 		turn()
-		time.sleep(.5)
+		time.sleep(.3)
 

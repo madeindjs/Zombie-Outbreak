@@ -26,10 +26,10 @@ class Area():
 		- `Z` : this area have a majority of Zombies
 		- `H` : this area have a majority of Humans """
 		if len(list(self.humans)) == 0 and len(list(self.zombies)) == 0:
-			return str()
+			return ' '
 
 		elif len(list(self.humans)) > len(list(self.zombies)):
-			return 'H'
+			return 'O'
 
 		elif len(list(self.humans)) < len(list(self.zombies)):
 			return 'Z'
