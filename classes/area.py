@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from classes.zombie import Zombie
+from classes.human import Human
 
 
 class Area():
@@ -23,6 +24,13 @@ class Area():
 	@property
 	def status(self):
 		return '{}|{}'.format( len(self.humans), len(self.zombies))
+
+
+	def add_humans(self, qty=1):
+		# add zombies
+		for i in range(0, qty):
+			self.humans.append(Human())
+			print('1 guy inserted on {}'.format(self))
 
 	def add_zombies(self, qty=1):
 		# add zombies

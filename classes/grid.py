@@ -6,6 +6,9 @@ from classes.area import Area
 
 class Grid():
 	"""a 10*10 grid with population and zombay"""
+
+
+
 	def __init__(self):
 		self.areas = list()
 		# build all areas [0,1],[1,1],[0,0], (....)
@@ -28,11 +31,25 @@ class Grid():
 		return map_view
 
 
+
+	def _get_random_area(self):
+		position = random.randint(0,len(self.areas))
+		return self.areas[position]
+
+
+
+
 	def add_zombies(self, qty=1 ):
 		"""add a zombies in a random area"""
 		for i in range(0,qty):
-			position = random.randint(0,len(self.areas))
-			born_area = self.areas[position]
+			born_area = self._get_random_area()
 			born_area.add_zombies()
 			
 
+
+
+	def add_humans(self, qty=1 ):
+		"""add a humans in a random area"""
+		for i in range(0,qty):
+			born_area = self._get_random_area()
+			born_area.add_humans()
