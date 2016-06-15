@@ -12,9 +12,8 @@ class Grid():
 	def __init__(self):
 		self.areas = list()
 		# build all areas [0,1],[1,1],[0,0], (....)
-		for x in range(0,10):
-			for y in range(0,10):
-				self.areas.append( Area(x,y) )
+		for id in range(0,100):
+			self.areas.append( Area(id) )
 
 
 
@@ -32,9 +31,28 @@ class Grid():
 
 
 
+
 	def _get_random_area(self):
 		position = random.randint(0,len(self.areas))
-		return self.areas[position]
+		return self.find_area(position)
+
+
+
+
+	def get_random_neighbour_area(self, area):
+		"""return a new location """
+		# return all moves possibles in array
+		locations_possibles = [move+area for move in [-10,10,-1,1] if move+area >= 0 and move+area <= 100]
+		# get a random movement
+		new_area_id = random.choice(locations_possibles)
+		return self.areas[new_area_id]
+
+
+
+
+	def find_area(self, id):
+		"""find an area with a id """
+		return self.areas[id]
 
 
 
