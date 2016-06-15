@@ -23,7 +23,15 @@ class Area():
 
 	@property
 	def status(self):
-		return '{}|{}'.format( len(self.humans), len(self.zombies))
+		"""retrun `I` if this area have a majority of Human"""
+		if len(self.humans) == 0 and len(self.zombies) == 0:
+			return str()
+
+		elif len(self.humans) > len(self.zombies):
+			return 'H'
+
+		elif len(self.humans) < len(self.zombies):
+			return 'Z'
 
 
 	def add_humans(self, qty=1):
