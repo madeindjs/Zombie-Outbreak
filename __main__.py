@@ -4,6 +4,7 @@ import argparse
 import time
 import os
 import random
+from datetime import  date, datetime, timedelta
 
 from classes.grid import Grid
 from classes.human import Human
@@ -28,8 +29,8 @@ def main():
 
 	args = parser.parse_args()
 
-	if args.verbose:
-		Writter.verbose = True
+	if args.zombies:
+		pass
 
 
 
@@ -37,7 +38,9 @@ def main():
 	grid.add_humans(10)
 	grid.add_zombies(20)
 
-	days = 0
+	date = datetime.now()
+	turn_time = timedelta(days=.25)
+	time_spend = timedelta()
 
 
 	def turn():
@@ -74,13 +77,14 @@ def main():
 	
 	while Human.total > 0 :
 		turn()
-		days+=.25
+		date+=turn_time
+		time_spend += turn_time
 
 		# display map and status
 		print(grid.view_map())
 		print("status:\t{} zombies and {} humans left".format(Zombie.total, Human.total))
-		print("\t{} days spend".format(days))
->>>>>>> USB_linux/poo
+		print("\t{}".format(date))
+		print("\t({} spend)".format(time_spend))
 
 		time.sleep(.5)
 
