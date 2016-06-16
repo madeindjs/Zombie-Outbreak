@@ -1,7 +1,30 @@
 # Zombie-Outbreak
-Synopsis:
 
-         A Zombie Apocalypse simulator created in Python 
+A Zombie Apocalypse simulator created in Python.
+
+## Synopsis
+
+Did you now how many time the humanity survive in a Zombie Apocalypse? Do you think Humans can kill all zombies to prevent infection? I don't know too but **Zombie Outbreak** can say it!
+
+## Algorithm
+
+The scene take place in a 80*10 place in your terminal represent the entire world. Each turn represent 6 hours in a day. This is a classic turn:
+
+1. Each Zombie / Humans move orthogonally like this:
+
+           ^
+           |  
+       <-- Z -->
+           |
+           V
+
+
+2. If there are humans in 
+
+
+## Developpement
+
+Developped only in Python from an originally idea of ..... in winter 2012. Forked and updated in June 2016.
 
 Created:  
 
