@@ -8,9 +8,10 @@ class Area():
 	"""an area is just a 1*1 square in a grid"""
 
 
-	def __init__(self, id):
+	def __init__(self, id, grid):
 		self.id = id
-		self.guys = list()
+		self.grid = grid 
+
 
 
 	def __str__(self):
@@ -29,42 +30,50 @@ class Area():
 			return ' '
 
 		elif len(list(self.humans)) > len(list(self.zombies)):
-			return 'O'
+			return '|'
 
 		elif len(list(self.humans)) < len(list(self.zombies)):
 			return 'Z'
+
+		else:
+			return '{}.{}'.format(len(list(self.humans)), len(list(self.zombies)) )
 
 
 
 	@property
 	def humans(self):
-		"""returns humans in this area"""
-		for guy in self.guys:
-			if isinstance(guy,Human):
-				yield guy 
-		# yield [guy for guy in self.guys if isinstance(guy,Human)]
-	
+		"""search in all Humans, who is in this area"""
+		for human in Human.instances:
+			try:
+				if human.area.id == self.id:
+					yield human 
+			except AttributeError:
+				pass
+
+
 
 
 	@property
 	def zombies(self):
 		"""returns zombies in this area"""
-		for guy in self.guys:
-			if isinstance(guy,Zombie):
-				yield guy 
-		# yield [guy for guy in self.guys if isinstance(guy,Zombie)]
+		for zombie in Zombie.instances:
+			try:
+				if zombie.area.id == self.id:
+					yield zombie 
+			except AttributeError:
+				pass
 
 
 	def add_humans(self, qty=1):
 		"""add humans on this area""" 
 		for i in range(0, qty):
-			self.guys.append(Human(self.id))
+			Human(self)
 
 
 
 	def add_zombies(self, qty=1):
 		"""add zombies on this area""" 
 		for i in range(0, qty):
-			self.guys.append(Zombie(self.id))
+			Zombie(self)
 
 

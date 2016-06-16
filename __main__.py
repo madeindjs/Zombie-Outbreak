@@ -1,33 +1,90 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import argparse
 import time
 import os
+import random
 
 from classes.grid import Grid
 from classes.human import Human
 from classes.zombie import Zombie
 
 
-if __name__ == '__main__':
+
+
+
+
+
+
+
+
+def main():
+
+	# setup comand line option
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-z", "--zombies", help="Number of begining zombie (default 20)")
+	parser.add_argument("-u", "--humans", help="Number of begining humans (default 10)")
+
+
+	args = parser.parse_args()
+
+	if args.verbose:
+		Writter.verbose = True
+
+
+
 	grid = Grid()
-	grid.add_humans(5)
-	grid.add_zombies(5)
+	grid.add_humans(10)
+	grid.add_zombies(20)
+
+	days = 0
+
 
 	def turn():
+		# clear terminal
 		os.system('cls' if os.name == 'nt' else 'clear')
 
+		# get all humans/zombies and move all them
+		for human in Human.instances:
+			human.move()
+
+		for zombie in Zombie.instances:
+			zombie.move()
+
+		# check all areas and find what to do
 		for area in grid.areas:
-			for human in area.humans:
-				human.move(grid)
-			for zombie in area.zombies:
-				zombie.move(grid)
-		
-		print(grid.view_map())
-		print('status: {} zombies and {} humans left'.format(Zombie.total, Human.total))
+
+			zombies = list(area.zombies)
+			humans = list(area.humans)
+
+			# they fight if there are zombies & humans in area 
+			if len(zombies) !=0 and len(humans)!=0:
+				for zombie in zombies:
+					random_human = random.choice(humans)
+					zombie.attack(random_human)
+
+
+			# a child may born if there are at least two humans and no zombies
+			if len(zombies) == 0 and len(humans) > 1:
+				humans[0].have_sex()
 
 
 
+
+	
 	while Human.total > 0 :
 		turn()
-		time.sleep(.01)
+		days+=.25
 
+		# display map and status
+		print(grid.view_map())
+		print("status:\t{} zombies and {} humans left".format(Zombie.total, Human.total))
+		print("\t{} days spend".format(days))
+>>>>>>> USB_linux/poo
+
+		time.sleep(.5)
+
+
+
+if __name__ == '__main__':
+	main()
