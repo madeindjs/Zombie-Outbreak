@@ -4,4 +4,5 @@ from classes.guy import Guy
 
 class Zombie(Guy):
 	"""a Zombie is a human infected herited from Guy"""
-	pass
+	instances = list()
+

@@ -3,34 +3,37 @@
 import random
 
 from classes.area import Area
+from classes.zombie import Zombie
+from classes.human import Human
+
 
 class Grid():
 	"""a 10*10 grid with population and zombay"""
 
-	width = 80
-	height = 10
+	WIDTH = 80
+	HEIGHT = 10
 
 
 
 	def __init__(self):
 		self.areas = list()
 		# build all areas [0,1],[1,1],[0,0], (....)
-		self.number_areas = self.width * self.height
+		self.number_areas = self.WIDTH * self.HEIGHT
 		for id in range(0,self.number_areas):
-			self.areas.append( Area(id) )
+			self.areas.append( Area(id, self) )
 
 
 
 	def view_map(self):
 		"""create a view map"""
-		map_view = '_'*self.width
+		map_view = '_'*self.WIDTH
 		# fetch all areas from `self.areas`
-		for x in range(0,self.height):
-			for y in range(0,self.width):
-				area_id = x*self.width+y
+		for x in range(0,self.HEIGHT):
+			for y in range(0,self.WIDTH):
+				area_id = x*self.WIDTH+y
 				map_view += '{}'.format(self.areas[area_id].status)
 			map_view += "\r\n"
-		map_view += '_'*self.width
+		map_view += '_'*self.WIDTH
 
 		return map_view
 
@@ -44,16 +47,16 @@ class Grid():
 
 
 
-	def get_random_neighbour_area(self, area_id=50):
+	def get_random_neighbour_area(self, area):
 		"""return a new location """
 		try:
-			# return all moves possibles in array
-			moves_possible = [self.width*-1,self.width,-1,1]
-			moves_result = [ move+area_id for move in moves_possible]
+			# return all moves possibles in a list()
+			moves_possible = [self.WIDTH*-1, self.WIDTH, -1, 1]
+			moves_result = [ move+area.id for move in moves_possible]
 			areas_ids_possibles = [ result for result in moves_result if result >= 0 and result <= self.number_areas]
-			# get a random movement
-			area_id = random.choice(areas_ids_possibles)
-			return self.areas[area_id]
+			# get a random movement from the list()
+			result_area_id = random.choice(areas_ids_possibles)
+			return self.areas[result_area_id]
 		except IndexError:
 			self._get_random_area()
 
@@ -72,7 +75,7 @@ class Grid():
 		"""add a zombies in a random area"""
 		for i in range(0,qty):
 			born_area = self._get_random_area()
-			born_area.add_zombies()
+			Zombie(born_area)
 			
 
 
@@ -81,4 +84,11 @@ class Grid():
 		"""add a humans in a random area"""
 		for i in range(0,qty):
 			born_area = self._get_random_area()
-			born_area.add_humans()
+			Human(born_area)
+
+
+	@property
+	def size(self):
+		"""return the size of the grid (= the number of areas)"""
+		return self.WIDTH * self.HEIGHT
+	
