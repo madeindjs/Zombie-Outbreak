@@ -24,6 +24,7 @@ class Guy():
 
 
 	def move(self, grid):
+		"""move this guy to a neighbourg area"""
 		# add it to the new area_id
 		new_area = grid.get_random_neighbour_area(self.area_id)
 		new_area.guys.append(self)
