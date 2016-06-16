@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import argparse
 import time
 import os
 import random
@@ -11,7 +12,27 @@ from classes.zombie import Zombie
 
 
 
+
+
+
+
+
+
 def main():
+
+	# setup comand line option
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-z", "--zombies", help="Number of begining zombie (default 20)")
+	parser.add_argument("-u", "--humans", help="Number of begining humans (default 10)")
+
+
+	args = parser.parse_args()
+
+	if args.verbose:
+		Writter.verbose = True
+
+
+
 	grid = Grid()
 	grid.add_humans(10)
 	grid.add_zombies(20)
