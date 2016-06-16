@@ -19,13 +19,6 @@ class Guy():
 
 
 
-	def __del__(self):
-		# increment number of instance of this object
-		self.__class__.total -= 1
-		self.__class__.instances.remove(self)
-
-
-
 
 	def move(self):
 		"""move this guy to a neighbourg area"""
@@ -39,6 +32,8 @@ class Guy():
 		except AttributeError:
 			# if something goes wrong, we kill it!!
 			del(self)
+
+
 
 
 

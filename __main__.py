@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import time
 import os
+import random
 
 from classes.grid import Grid
 from classes.human import Human
@@ -10,8 +11,8 @@ from classes.zombie import Zombie
 
 if __name__ == '__main__':
 	grid = Grid()
-	grid.add_humans(5)
-	grid.add_zombies(1)
+	grid.add_humans(10)
+	grid.add_zombies(20)
 
 	days = 0
 
@@ -30,12 +31,18 @@ if __name__ == '__main__':
 		# check all areas and find what to do
 		for area in grid.areas:
 
+			zombies = list(area.zombies)
+			humans = list(area.humans)
+
 			# they fight if there are zombies & humans in area 
-			if area.zombies !=0 and area.humans!=0:
-				pass
+			if len(zombies) !=0 and len(humans)!=0:
+				for zombie in zombies:
+					random_human = random.choice(humans)
+					zombie.attack(random_human)
+
 
 			# a child born if there are at least two humans and no zombies
-			if area.zombies == 0 and area.humans > 1:
+			if zombies == 0 and humans > 1:
 				pass
 
 

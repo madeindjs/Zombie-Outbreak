@@ -44,8 +44,12 @@ class Area():
 	def humans(self):
 		"""search in all Humans, who is in this area"""
 		for human in Human.instances:
-			if human.area.id == self.id:
-				yield human 
+			try:
+				if human.area.id == self.id:
+					yield human 
+			except AttributeError:
+				pass
+
 
 
 
@@ -53,8 +57,11 @@ class Area():
 	def zombies(self):
 		"""returns zombies in this area"""
 		for zombie in Zombie.instances:
-			if zombie.area.id == self.id:
-				yield zombie 
+			try:
+				if zombie.area.id == self.id:
+					yield zombie 
+			except AttributeError:
+				pass
 
 
 	def add_humans(self, qty=1):

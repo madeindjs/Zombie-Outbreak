@@ -33,6 +33,14 @@ class ZombieTest(unittest.TestCase):
 		zombie.move()
 		self.assertNotEqual(birth_area.id, zombie.area.id)
 
+	def test_zombie_die(self):
+		"""check if when a zombie die is correctly removed from instances"""
+		old_count = len(list(Zombie.instances))
+		new_zombie = Zombie(Area(1,Grid()))
+		new_zombie.die()
+		self.assertEqual(old_count, len(list(Zombie.instances)))
+
+
 
 class HumanTest(unittest.TestCase):
 
@@ -55,6 +63,20 @@ class HumanTest(unittest.TestCase):
 		human = Human(birth_area)
 		human.move()
 		self.assertNotEqual(birth_area.id, human.area.id)
+
+	def test_human_die(self):
+		"""check if when a zombie die is correctly removed from instances"""
+		old_count = len(list(Human.instances))
+		new_human = Human(Area(1,Grid()))
+		new_human.die()
+		self.assertEqual(old_count, len(list(Human.instances)))
+
+	def test_zombie_birth_when_human_die(self):
+		"""check if when a zombie die, a new zombie birth"""
+		old_count = len(list(Zombie.instances))
+		new_human = Human(Area(1,Grid()))
+		new_human.die()
+		self.assertEqual(old_count+1	, len(list(Zombie.instances)))
 
 
 class AreaTest(unittest.TestCase):
