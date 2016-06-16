@@ -9,7 +9,9 @@ from classes.human import Human
 from classes.zombie import Zombie
 
 
-if __name__ == '__main__':
+
+
+def main():
 	grid = Grid()
 	grid.add_humans(10)
 	grid.add_zombies(20)
@@ -41,14 +43,14 @@ if __name__ == '__main__':
 					zombie.attack(random_human)
 
 
-			# a child born if there are at least two humans and no zombies
-			if zombies == 0 and humans > 1:
-				pass
+			# a child may born if there are at least two humans and no zombies
+			if len(zombies) == 0 and len(humans) > 1:
+				humans[0].have_sex()
 
 
 
 
-
+	
 	while Human.total > 0 :
 		turn()
 		days+=.25
@@ -58,5 +60,9 @@ if __name__ == '__main__':
 		print("status:\t{} zombies and {} humans left".format(Zombie.total, Human.total))
 		print("\t{} days spend".format(days))
 
-		time.sleep(.1)
+		time.sleep(.5)
 
+
+
+if __name__ == '__main__':
+	main()

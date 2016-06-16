@@ -26,6 +26,10 @@ class Zombie(Guy):
 
 	def die(self):
 		"""when a Zombie die, he is remove from an instances"""
-		self.__class__.total -= 1
-		self.__class__.instances.remove(self)
+		try:
+			self.__class__.total -= 1
+			self.__class__.instances.remove(self)
+		except ValueError:
+			pass
+
 		del(self)

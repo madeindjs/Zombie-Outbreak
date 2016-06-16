@@ -30,7 +30,7 @@ class Area():
 			return ' '
 
 		elif len(list(self.humans)) > len(list(self.zombies)):
-			return 'O'
+			return '|'
 
 		elif len(list(self.humans)) < len(list(self.zombies)):
 			return 'Z'
