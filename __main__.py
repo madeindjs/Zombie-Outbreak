@@ -12,7 +12,10 @@ from classes.zombie import Zombie
 
 
 
-
+try:
+	from clint.textui import colored
+except ImportError:
+	pass
 
 
 
@@ -82,7 +85,11 @@ def main():
 
 		# display map and status
 		print(grid.view_map())
-		print("status:\t{} zombies and {} humans left".format(Zombie.total, Human.total))
+		try:
+			print("status:\t{} zombies and {} humans left".format(colored.red(Zombie.total), colored.blue(Human.total)))
+		except NameError:
+			return 'Z'
+
 		print("\t{}".format(date))
 		print("\t({} spend)".format(time_spend))
 

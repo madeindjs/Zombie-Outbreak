@@ -3,6 +3,11 @@
 from classes.zombie import Zombie
 from classes.human import Human
 
+try:
+	from clint.textui import colored
+except ImportError:
+	pass
+
 
 class Area():
 	"""an area is just a 1*1 square in a grid"""
@@ -30,10 +35,17 @@ class Area():
 			return ' '
 
 		elif len(list(self.humans)) > len(list(self.zombies)):
-			return '|'
+			try:
+				return colored.blue('I')
+			except NameError:
+				return 'Z'
 
 		elif len(list(self.humans)) < len(list(self.zombies)):
-			return 'Z'
+			try:
+				return colored.red('Z')
+			except NameError:
+				return 'Z'
+			
 
 		else:
 			return '{}.{}'.format(len(list(self.humans)), len(list(self.zombies)) )

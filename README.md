@@ -12,19 +12,28 @@ The scene take place in a 80*10 place in your terminal represent the entire worl
 
 1. Each Zombie / Humans move orthogonally like this:
 
-           ^
-           |  
+            ^
+            |  
        <-- Z -->
-           |
-           V
+            |
+            V
 
 
-2. If there are humans in 
+2. If there are humans in a same area than a Zombie, the zombie will attack him. At this point, there are 1/2 chance that:
+      * **zombie kill human**. In this case, the human transform in a zombie
+      * **human kill zombie**. In this case, the zombie is dead
+3. if there are at least two humans in the same area and no zombie, humans **have a sex**. At this point, there are 1/3 chance that a new human birth
+
+## Launch
+
+    sudo pip install clint #for terminal color support
 
 
 ## Developpement
 
-Developped only in Python from an originally idea of ..... in winter 2012. Forked and updated in June 2016.
+Developped only in Python from an originally idea of [Ashish Tamang](https://github.com/a-tamang) in winter 2012. Forked and updated in June 2016 by [Alexandre Rousseau](https://github.com/madeindjs).
+
+
 
 Created:  
 
