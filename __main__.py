@@ -29,17 +29,22 @@ def main():
 	parser.add_argument("-z", "--zombies", help="Number of begining zombie (default 20)")
 	parser.add_argument("-u", "--humans", help="Number of begining humans (default 10)")
 
+	grid = Grid()
 
 	args = parser.parse_args()
 
 	if args.zombies:
-		pass
+		grid.add_zombies( int(args.zombies) )
+	else:
+		grid.add_zombies( 20 )
 
 
+	if args.humans:
+		grid.add_humans( int(args.humans) )
+	else:
+		grid.add_humans( 10 )
 
-	grid = Grid()
-	grid.add_humans(10)
-	grid.add_zombies(20)
+
 
 	date = datetime.now()
 	turn_time = timedelta(days=.25)

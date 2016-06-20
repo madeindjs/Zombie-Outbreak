@@ -22,10 +22,18 @@ The scene take place in a 80*10 place in your terminal represent the entire worl
     git clone https://github.com/a-tamang/Zombie-Outbreak
     python zombie-outbreak
 
+if you want, you can specify a number of zombie and / or humans with argparse:
+
+    python zombie-outbreak --zombies 30 --humans 20 
 
 ## Developpement
 
 Developped only in Python from an originally idea of [Ashish Tamang](https://github.com/a-tamang) in winter 2012. Forked and updated in June 2016 by [Alexandre Rousseau](https://github.com/madeindjs).
+
+### Dependencies
+
+* [clint](https://pypi.python.org/pypi/clint/) for terminal color (it's more beautifull)
+
 
 ### Unit Test
 
